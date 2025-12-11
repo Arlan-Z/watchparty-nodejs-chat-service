@@ -48,7 +48,7 @@ io.on("connection", (socket) => {
 app.use("/api/chat", chatRoutes);
 
 
-const mongoURI = `mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`;
+const mongoURI = process.env.MONGO_URI;
 
 mongoose
   .connect(mongoURI)
