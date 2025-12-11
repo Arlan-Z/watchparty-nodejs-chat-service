@@ -1,6 +1,8 @@
 services:
   chat-service:
-    build: ./src
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: watch-party-chat-service-container
     ports:
       - "${PORT}:5000"
