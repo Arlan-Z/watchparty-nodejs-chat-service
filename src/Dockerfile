@@ -1,14 +1,13 @@
-FROM node:24.12.0-trixie-slim AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
 COPY package*.json ./
-
 RUN npm install --only=production
 
 COPY . .
 
-FROM node:24.12.0-trixie-slim
+FROM node:24-alpine
 
 WORKDIR /app
 
@@ -17,4 +16,4 @@ COPY --from=builder /app .
 
 EXPOSE 5000
 
-CMD [ "node", "server.js" ] 
+CMD ["node", "server.js"]
