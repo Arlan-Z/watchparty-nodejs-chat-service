@@ -1,4 +1,4 @@
-FROM node:25.0.0-alpine AS builder
+FROM node:24.12.0-trixie-slim AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN npm install --only=production
 
 COPY . .
 
-FROM node:25.0.0-alpine
+FROM node:24.12.0-trixie-slim
 
 WORKDIR /app
 
